@@ -15,7 +15,7 @@ body {
 }
 
 @view-transition {
-  navigation: auto;
+    navigation: auto;
 }
 
 /* default styles */
@@ -427,4 +427,40 @@ footer form button {
 
 footer form button:hover {
     background-color: rgba(2, 48, 71, 1);
+}
+
+@media (max-width: 70rem) {
+    header {
+        flex-direction: column;
+    }
+
+    #hero>div {
+        flex-grow: 1;
+    }
+
+    #hero>div:nth-child(2) {
+        flex-basis: 15rem;
+    }
+
+    section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    footer {
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        align-items: stretch;
+    }
+
+    footer>div,
+    footer>form {
+        flex-basis: 100%;
+    }
+
+    footer>div {
+        padding-right: 0;
+    }
+
 }
