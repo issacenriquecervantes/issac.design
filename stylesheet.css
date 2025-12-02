@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    font-family: "Funnel Sans", serif;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+/* default styles */
+p {
+    font-weight: 300;
+    font-size: 1.125rem;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* header styles */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5rem;
+    position: sticky;
+    /* or fixed */
+    top: 0;
+    z-index: 1;
+    /* Ensures the header stays above other content */
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0.5rem rgba(200, 200, 200, 1);
+}
+
+/* height of logo */
+header a img {
+    height: 3rem;
+}
+
+/* nav styles */
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+header nav ul li {
+    list-style-type: none;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+    font-size: 1.25rem;
+    position: relative;
+}
+
+header nav ul li a:hover::after {
+    content: "";
+    position: absolute;
+    height: 0.125rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(33, 158, 188, 1);
+}
+
+/*main content styles*/
+main {
+    max-width: 70rem;
+    margin: auto;
+}
+
+/*section styles*/
+section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 0 0 0 0;
+}
+
+/* heading styles for all sections */
+section h2 {
+    flex: 100% 1 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    padding-top: 8rem;
+}
+
+#hero {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+#hero>div {
+    flex: 50% 0 1;
+}
+
+#hero h1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#hero>div:nth-child(2) {
+    flex-basis: 25rem;
+}
+
+#hero-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#hero img {
+    object-fit: cover;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(150, 150, 150, 1);
+    transform: rotate(2deg);
+}
+
+#hero-image-wrapper::after {
+    content: "";
+    transform: rotate(-2deg);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(200, 200, 200, 1);
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(150, 150, 150, 1);
+}
+
+#hero h1 span:first-of-type {
+    font-weight: 400;
+    font-size: 1.75rem;
+}
+
+#hero h1 span:nth-of-type(2) {
+    font-weight: 600;
+    font-size: 3rem;
+    color: rgba(33, 158, 188, 1);
+}
+
+#hero h1 span:nth-of-type(3) {
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.service-card svg {
+    height: 8rem;
+    fill: rgba(2, 48, 71, 1);
+}
+
+.featured-work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 20rem 1 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: inherit;
+}
+
+.featured-work-card-expanded {
+    flex: 0 0 100%;
+}
+
+.featured-work-card-expanded>div:first-of-type img {
+    display: none;
+}
+
+/* .featured-work-card:hover {
+    transform: scale(1.05);
+} */
+
+.service-card>div,
+.featured-work-card>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.work {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+}
+
+.work>div:first-of-type {
+    flex: 1 0 100%;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+}
+
+.work>div:first-of-type img {
+    grid-row: span 1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.work>div:first-of-type img:first-of-type {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.work>div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 0 1 45%;
+}
+
+.work h1 {
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.work>div:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 0 1 50%;
+}
+
+.work h2 {
+    text-align: left;
+    padding: 0;
+    font-size: 1.75rem;
+}
+
+.work-pagination a {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    color: rgba(2, 48, 71, 1);
+    text-decoration: none;
+    transition: gap 0.3s ease-in-out;
+}
+
+.work-pagination a:hover {
+    gap: 0.5rem;
+}
+
+.work-pagination svg {
+    height: 1.5rem;
+    fill: rgba(33, 158, 188, 1);
+}
+
+.service-card h3,
+.featured-work-card h3 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.work-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.work-tags p {
+    background-color: rgba(142, 202, 230, 0.25);
+    padding: 0.25rem 0.5rem;
+    min-width: max-content;
+    font-size: 0.75rem;
+    color: rgba(2, 48, 71, 1);
+}
+
+.client-card {
+    background-color: rgba(255, 183, 3, 0.125);
+    padding: 2rem;
+    border: solid 3px rgba(255, 184, 3, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    flex: 1;
+}
+
+.client-card>p:first-of-type {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.client-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.client-info div>p {
+    font-size: 0.875rem;
+}
+
+.client-info div>p:first-of-type {
+    font-size: 1rem;
+}
+
+.client-info img {
+    max-width: 4rem;
+}
+
+/* footer styles */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    max-width: 70rem;
+    margin: auto;
+    margin-top: 8rem;
+    border-top: solid 2px rgba(200, 200, 200, 1);
+    padding: 4rem 0;
+}
+
+footer>div,
+footer>form {
+    flex: 50% 0 1;
+}
+
+footer>div {
+    padding-right: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+footer h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+#contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: start;
+}
+
+#contact-links svg {
+    height: 2rem;
+    fill: rgba(2, 48, 71, 1);
+}
+
+
+footer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    gap: 1rem;
+}
+
+footer form label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.25rem;
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+footer form label span {
+    color: rgba(251, 133, 0, 1);
+    display: inline;
+}
+
+footer form label input,
+footer form label textarea {
+    padding: 1rem;
+    border: none;
+    background-color: rgba(225, 225, 225, 1);
+    font-size: 1rem;
+    font-family: inherit;
+    flex: 1 0 100%;
+}
+
+footer form label input:focus,
+footer form label textarea:focus {
+    outline-color: rgba(150, 150, 150, 1);
+}
+
+footer form input::placeholder,
+footer form textarea::placeholder {
+    color: rgba(150, 150, 150, 1);
+}
+
+footer form button {
+    max-width: max-content;
+    padding: 1rem 3rem;
+    background-color: rgba(33, 158, 188, 1);
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+footer form button:hover {
+    background-color: rgba(2, 48, 71, 1);
+}
